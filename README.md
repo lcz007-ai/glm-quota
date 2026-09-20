@@ -1,6 +1,6 @@
 # glm-quota
 
-[pi coding agent](https://github.com/earendil-works/pi-coding-agent) 扩展：在输入框上方实时显示 GLM Coding Plan 余量。
+[pi agent](https://github.com/earendil-works/pi) 扩展：在输入框上方实时显示 GLM Coding Plan 余量。
 
 ## 功能
 - 显示 5 小时窗口 / 周窗口的剩余额度、已用百分比、重置倒计时
