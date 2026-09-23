@@ -92,7 +92,7 @@ async function resolveCredential(ctx: CtxLike): Promise<GlmCredential | null> {
 	// 1) 复用 pi 已配置的智谱 provider（zai-cn / zai 等）
 	const reg = ctx.modelRegistry;
 	if (reg?.getProviderAuth) {
-		for (const id of ["zai-cn", "zai", "zhipu", "bigmodel"]) {
+		for (const id of ["zai-coding-cn", "zai-cn", "zai", "zhipu", "bigmodel"]) {
 			try {
 				const result = (await reg.getProviderAuth(id)) as
 					| { auth?: { apiKey?: string }; apiKey?: string; baseUrl?: string }
