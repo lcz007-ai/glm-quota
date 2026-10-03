@@ -12,6 +12,20 @@
 ## 安装
 将 `glm-quota.ts` 放入 `~/.pi/agent/extensions/`（全局），`/reload` 热重载即可。
 
+## 调小 pi-web 里的显示字号（可选）
+
+pi-web 前端把扩展 widget 面板的字号写死为 `14px + 聊天字体偏移`（CSS 规则 `.extension-widget-content`），pi 扩展本身只能提供文本、无法控制字号，所以只能在 pi-web 的构建产物上打补丁：
+
+```bash
+./patch-pi-web-font.sh            # 默认改成 10px
+./patch-pi-web-font.sh 12px       # 自定义字号
+./patch-pi-web-font.sh --restore  # 还原
+```
+
+脚本会自动定位全局安装的 pi-web（也可用 `PI_WEB_DIR` 指定包目录），首次运行会把原始 CSS 备份为 `*.bak-font`。
+改完硬刷新浏览器（`Ctrl+Shift+R`）；pi-web 升级或重装后补丁会被覆盖，重跑一次即可。
+注意这是全局规则：所有扩展的 widget 面板字号会一起变小。
+
 ## 说明
 - 数据接口：`GET {host}/api/monitor/usage/quota/limit`（Authorization 直接传 key，不带 Bearer 前缀）
 - 仅本地查询智谱 API，不上传任何数据；扩展内不含任何密钥
